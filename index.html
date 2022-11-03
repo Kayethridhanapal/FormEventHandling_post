@@ -1,0 +1,188 @@
+<html>
+    <head>
+        <meta name="viewport" content="width-device-width,initial scale=1">
+        <style>
+            h3{text-align:center 7;padding-top: 5px;font-size: 20px;font-style: italic;font-family: 'Times New Roman', Times, serif;font-weight: 300;}
+            p{text-align: left;padding-left: 15px;font-size: 20px;font-style: italic;font-family: 'Times New Roman', Times, serif;font-weight: 300;}
+        </style>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body style="background-color:cadetblue;font-weight: 600;font-style: normal;">
+         <div class="container-fluid">
+        <h2 style="color:black;text-align: center;font-style: oblique;background-color: #F8E9A1;"><b>REGISTRATION FORM</b></h2>
+        <p>Instructions</p>
+                <ul>
+                    <li>Name should contain only uppercase letters with initial at the end</li>
+                    <li>username should contain only lowercase letters with underscore</li>
+                    <li>Password length should be 8-12 with a special character</li>
+                </ul>
+        <form action="http://localhost:8080" method="post" class="container-fluid form-inline" name="form" id="v1"onsubmit="return validate()" >
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-4"><label for="nna" class="form-label">Enter Name:</label>
+                <input type="text" name="na" id="nna" class="form-control"  placeholder="enter name" ></div>
+                <div class="col-4"><label for="uuna" class="form-label">Enter userame:</label>
+                    <input type="text" name="una" id="uuna" class="form-control"  placeholder="enter username" ></div>
+                <div class="col-2"></div>     
+        </div>
+
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-4"><label for="password" class="form-label">Enter password:</label>
+                <input type="password" name="pword" id="password" class="form-control"  placeholder="enter password" ></div>
+            <div class="col-4"><label for="mobnum" class="form-label">Enter Mobilenumber:</label>
+                <input type="tel" name="mnum" id="mobnum" class="form-control"  placeholder="enter mobilenumber" ></div> 
+                <div class="col-2"></div>  
+            </div>
+
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-4"><label for="mail" class="form-label">Enter email:</label>
+                <input type="email" name="email" id="mail" class="form-control"  placeholder="enter email" ></div>
+                <div class="col-4"><label for="add1" class="form-label">Enter address:</label>
+                <textarea name="address" id="add1" cols="60" rows="2"></textarea></div>
+            <div class="col-2"></div>    
+        </div> 
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-2">Gender
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="gender" id="male1" value="Male">
+                    <label class="form-check-label" for="male1">Male</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="gender" id="female1" value="Female">
+                    <label class="form-check-label" for="female1">Female</label>
+                </div></div>
+                <div class="col-3">Select city
+                <select class="form-select" id="city" name="city">
+                <option value="None">None</option>
+                <option value="Erode">Erode</option>
+                <option value="Cbe">Cbe</option>
+                <option value="Karur">Karur</option>
+                <option value="Salem">Salem</option>
+                </select>
+                </div>
+                <div class="col-3"><b>Technical events</b>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="check1" name="option1" value="PRADARSHIAN" >
+                        <label class="form-check-label">PRADARSHIAN</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="check2" name="option2" value="IDEAPEDIA" >
+                        <label class="form-check-label">IDEAPEDIA</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="check3" name="option3" value="CIRCUIT MONSTER" >
+                        <label class="form-check-label">CIRCUIT MONSTER</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="check4" name="option4" value="POSTER" >
+                        <label class="form-check-label">POSTER</label>
+                      </div>
+                    </div>
+                      
+                <div class="col-2"></div>
+        </div>
+
+        <div class="row">
+            <div class="col"></div>
+            <div class="col"><input type="submit" value="SUBMIT" class="btn" style="background-color:#F8E9A1"></div>
+            <div class="col"></div>    
+        </div>
+        </form>
+     </div>
+     
+     <script type="text/javascript">
+        function validate()
+        {
+
+         var name=document.getElementById("nna").value;
+         var name1=/^[A-Z]*\.([A-Z])+$/;
+         var result=name1.test(name);
+     
+         if(!result)
+         {
+             alert("please read the instructions for NAME carefully");
+             document.form.na.focus();
+             return false;      
+         }
+
+         var username=document.getElementById("uuna").value;
+         var username1=/^[A-z]{6,10}[_]$/;
+         var result1=username1.test(username);
+         if(!result1)
+         {
+             alert("please read the instructions for USERNAME carefully");
+             document.form.una.focus();
+             return false;
+         }
+
+         var password=document.getElementById("password").value;
+         var password1=/^[A-z0-9\D]{8,12}$/;
+         var result2=password1.test(password);
+         if(!result2)
+         {
+             alert("please read the instructions for PASSWORD carefully");
+             document.form.pword.focus();
+             return false;
+         }
+
+         var mobilenum=document.getElementById("mobnum").value;
+         var mobilenum1=/^\d{10}$/;
+         var result3=mobilenum1.test(mobilenum);
+         if(!result3)
+         {
+             alert("please read the instructions for MOBILENUMBER carefully");
+             document.form.mnum.focus();
+             return false;
+         }
+
+         var email=document.getElementById("mail").value;
+         var email1=/^([a-z])+([a-z0-9])*\@([A-Za-z0-9\.])+\.([A-Za-z]{2,4})$/;
+         var result4=email1.test(email);
+         if(!result4)
+         {
+             alert("please read the instructions for EMAIL carefully");
+             document.form.email.focus();
+             return false;
+         }
+
+         var address=document.getElementById("add1").value;
+             if(address==null||address==""||address.length==0)
+         {
+             alert("address cant be blank");
+             document.form.address.focus();
+             return false;
+         }
+
+        if(document.getElementById("male1").checked==false && document.getElementById("female1").checked==false)
+        {
+                
+                alert("select  gender");
+                return false;
+        }
+
+        var sel=document.getElementById("city");
+            var selectedText=sel.options[sel.selectedIndex].text;
+            
+        if(selectedText=="None")
+        {
+            alert(" select your city");
+            return false;
+        }
+
+        if(document.getElementById("check1").checked==false && document.getElementById("check2").checked==false && document.getElementById("check3").checked==false&& document.getElementById("check4").checked==false)
+        {
+                alert("Select events to participate");
+                return false;
+                
+        }  
+
+        }
+    </script>
+    </div>
+    </body>   
+</html>
